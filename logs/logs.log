@@ -5,8 +5,9 @@
  - using code:	gin.SetMode(gin.ReleaseMode)
 
 [GIN-debug] GET    /hello/hello              --> GinHello/handlers/hello.Hello (3 handlers)
+[GIN-debug] GET    /db/connect               --> GinHello/handlers/postgres.DbOpen (3 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8081
-[GIN] 2022/09/26 - 11:24:26 | 404 |            0s |       127.0.0.1 | GET      "/hello"
-[GIN] 2022/09/26 - 11:24:35 | 200 |            0s |       127.0.0.1 | GET      "/hello/hello"
+[GIN] 2022/09/27 - 17:08:23 | 200 |       704.7µs |       127.0.0.1 | GET      "/db/connect"
+[GIN] 2022/09/27 - 17:09:05 | 200 |    21.362687s |       127.0.0.1 | GET      "/db/connect"
