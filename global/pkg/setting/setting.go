@@ -12,7 +12,7 @@ var sections = make(map[string]interface{})
 
 func NewSetting() (*Setting, error) {
 	vp := viper.New()
-	vp.SetConfigName("resources")
+	vp.SetConfigName("config")
 	vp.AddConfigPath("./resources")
 	vp.SetConfigType("yaml")
 	err := vp.ReadInConfig()

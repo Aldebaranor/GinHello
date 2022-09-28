@@ -5,11 +5,13 @@ import (
 	"GinHello/service"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"time"
 )
 
 func InsertUser(ctx *gin.Context) {
 	user := entity.User_info{}
 	ctx.ShouldBind(&user)
+	user.CreateTime = time.Now()
 	err := service.InsertUser(&user)
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{

@@ -2,6 +2,7 @@ package main
 
 import (
 	"GinHello/global"
+	"GinHello/mapper"
 	"GinHello/routers"
 	"github.com/gin-gonic/gin"
 	"io"
@@ -18,6 +19,11 @@ func init() {
 }
 
 func main() {
+	err := mapper.ConnectDB()
+	if err != nil {
+		panic(err)
+	}
+	defer mapper.Close()
 	f, _ := os.Create("./logs/logs.log")
 	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
 	gin.SetMode(global.ServerSetting.RunMode)

@@ -21,7 +21,7 @@ func Routers() *gin.Engine {
 		noORMRouter.GET("/findAll", userInfo.FindAllUser)
 
 	}
-	ORMRouter := routers.Group("/ORM")
+	ORMRouter := routers.Group("/user")
 	{
 		ORMRouter.POST("/insert", controller.InsertUser)
 		ORMRouter.GET("/findAll", controller.GetUserList)
