@@ -15,6 +15,10 @@ func Routers() *gin.Engine {
 	PostgreRouter := routers.Group("/user")
 	{
 		PostgreRouter.POST("/insert", userInfo.InsertUser)
+		PostgreRouter.GET("/deleteById", userInfo.DeleteUserById)
+		PostgreRouter.POST("/updateById", userInfo.UpdateUserInfo)
+		PostgreRouter.GET("/findAll", userInfo.FindAllUser)
+
 	}
 	return routers
 }

@@ -12,13 +12,13 @@ type ServerSettingS struct {
 }
 
 type PostgresDbSettings struct {
-	Name     string
-	Host     string
-	Port     string
-	User     string
-	Password string
-	Dbname   string
-	Sslmode  string
+	DriverName string
+	Host       string
+	Port       string
+	User       string
+	Password   string
+	Dbname     string
+	Sslmode    string
 }
 
 // 定义全局变量

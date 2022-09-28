@@ -5,9 +5,18 @@
  - using code:	gin.SetMode(gin.ReleaseMode)
 
 [GIN-debug] GET    /hello/hello              --> GinHello/handlers/hello.Hello (3 handlers)
-[GIN-debug] GET    /db/connect               --> GinHello/handlers/postgres.DbOpen (3 handlers)
+[GIN-debug] POST   /user/insert              --> GinHello/handlers/userInfo.InsertUser (3 handlers)
+[GIN-debug] GET    /user/deleteById          --> GinHello/handlers/userInfo.DeleteUserById (3 handlers)
+[GIN-debug] POST   /user/updateById          --> GinHello/handlers/userInfo.UpdateUserInfo (3 handlers)
+[GIN-debug] GET    /user/findAll             --> GinHello/handlers/userInfo.FindAllUser (3 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8081
-[GIN] 2022/09/27 - 17:08:23 | 200 |       704.7µs |       127.0.0.1 | GET      "/db/connect"
-[GIN] 2022/09/27 - 17:09:05 | 200 |    21.362687s |       127.0.0.1 | GET      "/db/connect"
+[GIN] 2022/09/28 - 14:01:58 | 200 |    417.5021ms |       127.0.0.1 | GET      "/user/deleteById?id=2"
+[GIN] 2022/09/28 - 14:02:21 | 200 |    397.0447ms |       127.0.0.1 | POST     "/user/insert"
+[GIN] 2022/09/28 - 14:03:29 | 200 |    299.8903ms |       127.0.0.1 | GET      "/user/findAll"
+[GIN] 2022/09/28 - 14:03:37 | 200 |     378.227ms |       127.0.0.1 | POST     "/user/updateById"
+[GIN] 2022/09/28 - 14:03:50 | 500 |    338.9101ms |       127.0.0.1 | GET      "/user/findAll"
+[GIN] 2022/09/28 - 14:04:14 | 200 |    343.7263ms |       127.0.0.1 | POST     "/user/updateById"
+[GIN] 2022/09/28 - 14:04:29 | 200 |    393.7794ms |       127.0.0.1 | POST     "/user/updateById"
+[GIN] 2022/09/28 - 14:04:36 | 200 |    291.3972ms |       127.0.0.1 | GET      "/user/findAll"
