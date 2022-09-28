@@ -12,12 +12,12 @@ func Routers() *gin.Engine {
 	{
 		HelloRouter.GET("/hello", hello.Hello)
 	}
-	PostgreRouter := routers.Group("/user")
+	PostgresRouter := routers.Group("/user")
 	{
-		PostgreRouter.POST("/insert", userInfo.InsertUser)
-		PostgreRouter.GET("/deleteById", userInfo.DeleteUserById)
-		PostgreRouter.POST("/updateById", userInfo.UpdateUserInfo)
-		PostgreRouter.GET("/findAll", userInfo.FindAllUser)
+		PostgresRouter.POST("/insert", userInfo.InsertUser)
+		PostgresRouter.GET("/deleteById", userInfo.DeleteUserById)
+		PostgresRouter.POST("/updateById", userInfo.UpdateUserInfo)
+		PostgresRouter.GET("/findAll", userInfo.FindAllUser)
 
 	}
 	return routers

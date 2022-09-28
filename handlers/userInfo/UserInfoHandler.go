@@ -25,6 +25,8 @@ func InsertUser(context *gin.Context) {
 	if err != nil {
 		panic(err)
 	}
+	defer stmt.Close()
+	db.Close()
 	log.Printf("%+v", res)
 	context.JSON(200, gin.H{
 		"msg":         "新增成功",
@@ -46,6 +48,8 @@ func DeleteUserById(context *gin.Context) {
 	if err != nil {
 		panic(err)
 	}
+	defer stmt.Close()
+	db.Close()
 	log.Printf("%+v", res)
 	context.JSON(200, gin.H{
 		"msg": "删除成功",
@@ -68,6 +72,8 @@ func UpdateUserInfo(context *gin.Context) {
 	if err != nil {
 		panic(err)
 	}
+	defer stmt.Close()
+	db.Close()
 	log.Printf("%+v", res)
 	context.JSON(200, gin.H{
 		"msg":       "更新成功",
@@ -94,6 +100,8 @@ func FindAllUser(context *gin.Context) {
 		userInfoList = append(userInfoList, user)
 		log.Printf("%+v", user)
 	}
+	defer stmt.Close()
+	db.Close()
 	context.JSON(200, gin.H{
 		"userInfoList": userInfoList,
 	})
