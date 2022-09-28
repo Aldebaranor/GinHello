@@ -2,7 +2,7 @@ package routers
 
 import (
 	"GinHello/handlers/hello"
-	"GinHello/handlers/postgres"
+	"GinHello/handlers/userInfo"
 	"github.com/gin-gonic/gin"
 )
 
@@ -12,9 +12,9 @@ func Routers() *gin.Engine {
 	{
 		HelloRouter.GET("/hello", hello.Hello)
 	}
-	PostgreRouter := routers.Group("/db")
+	PostgreRouter := routers.Group("/user")
 	{
-		PostgreRouter.GET("/connect", postgres.DbOpen)
+		PostgreRouter.POST("/insert", userInfo.InsertUser)
 	}
 	return routers
 }

@@ -3,7 +3,7 @@ Server:
   HttpPort: 8081
 
 Postgres:
-  Name: postgres
+  Name: userInfo
   Host: 47.97.116.47
   Port: 8023
   User: juntai

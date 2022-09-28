@@ -3,26 +3,26 @@ package postgres
 import (
 	"GinHello/global"
 	"database/sql"
-	"github.com/gin-gonic/gin"
 	_ "github.com/lib/pq"
-	"log"
 )
 
-var db *sql.DB
+var DB *sql.DB
 
-func DbOpen(context *gin.Context) {
-	db, _ = sql.Open(global.PostgresDbSetting.Name,
+// 连接数据库
+func ConnectDB() *sql.DB {
+	db, err := sql.Open(global.PostgresDbSetting.Name,
 		global.PostgresDbSetting.Host+" "+
 			global.PostgresDbSetting.Port+" "+
 			global.PostgresDbSetting.User+" "+
 			global.PostgresDbSetting.Password+" "+
 			global.PostgresDbSetting.Dbname+" "+
 			global.PostgresDbSetting.Sslmode)
-	err := db.Ping()
 	if err != nil {
-		log.Printf("%+v", err)
+		panic(err)
 	}
-	context.JSON(200, gin.H{
-		"msg": err,
-	})
+	err = db.Ping()
+	if err != nil {
+		panic(err)
+	}
+	return db
 }
