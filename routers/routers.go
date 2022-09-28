@@ -1,8 +1,9 @@
 package routers
 
 import (
-	"GinHello/handlers/hello"
-	"GinHello/handlers/userInfo"
+	"GinHello/controller"
+	"GinHello/controller/hello"
+	"GinHello/controller/userInfo"
 	"github.com/gin-gonic/gin"
 )
 
@@ -12,12 +13,21 @@ func Routers() *gin.Engine {
 	{
 		HelloRouter.GET("/hello", hello.Hello)
 	}
-	PostgresRouter := routers.Group("/user")
+	noORMRouter := routers.Group("/noORM")
 	{
-		PostgresRouter.POST("/insert", userInfo.InsertUser)
-		PostgresRouter.GET("/deleteById", userInfo.DeleteUserById)
-		PostgresRouter.POST("/updateById", userInfo.UpdateUserInfo)
-		PostgresRouter.GET("/findAll", userInfo.FindAllUser)
+		noORMRouter.POST("/insert", userInfo.InsertUser)
+		noORMRouter.GET("/deleteById", userInfo.DeleteUserById)
+		noORMRouter.POST("/updateById", userInfo.UpdateUserInfo)
+		noORMRouter.GET("/findAll", userInfo.FindAllUser)
+
+	}
+	ORMRouter := routers.Group("/ORM")
+	{
+		ORMRouter.POST("/insert", controller.InsertUser)
+		ORMRouter.GET("/findAll", controller.GetUserList)
+		ORMRouter.GET("/getUser/:id", controller.GetUserById)
+		ORMRouter.PUT("/update", controller.UpdateUser)
+		ORMRouter.DELETE("/delete/:id", controller.DeleteUserById)
 
 	}
 	return routers

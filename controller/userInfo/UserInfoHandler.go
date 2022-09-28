@@ -1,8 +1,8 @@
 package userInfo
 
 import (
-	"GinHello/handlers/postgres"
-	"GinHello/model"
+	"GinHello/controller/postgres"
+	"GinHello/entity"
 	"github.com/gin-gonic/gin"
 	_ "github.com/lib/pq"
 	"log"
@@ -90,9 +90,9 @@ func FindAllUser(context *gin.Context) {
 		panic(err)
 	}
 	defer stmt.Close()
-	var userInfoList []model.User_info
+	var userInfoList []entity.User_info
 	for stmt.Next() {
-		user := model.User_info{}
+		user := entity.User_info{}
 		err := stmt.Scan(&user.UId, &user.UserName, &user.CreateTime)
 		if err != nil {
 			panic(err)

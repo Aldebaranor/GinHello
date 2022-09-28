@@ -1,7 +1,7 @@
 package global
 
 import (
-	"GinHello/pkg/setting"
+	"GinHello/global/pkg/setting"
 	"log"
 )
 
