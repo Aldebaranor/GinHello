@@ -19,7 +19,7 @@ func ConnectDB() (err error) {
 	Dbname := global.PostgresDbSetting.Dbname
 	Sslmode := global.PostgresDbSetting.Sslmode
 	psqlInfo := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s", Host, Port, User, Password, Dbname, Sslmode)
-	SqlSession, err := gorm.Open(DriverName, psqlInfo)
+	SqlSession, err = gorm.Open(DriverName, psqlInfo)
 	if err != nil {
 		panic(err)
 	}

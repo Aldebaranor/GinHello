@@ -7,7 +7,7 @@ func (User_info) TableName() string {
 }
 
 type User_info struct {
-	UId        string    `json:"u_id"`
-	UserName   string    `json:"user_name"`
-	CreateTime time.Time `json:"create_time"`
+	UId        string    `json:"u_id" gorm:"column:u_id"`
+	UserName   string    `json:"user_name" gorm:"column:user_name"`
+	CreateTime time.Time `json:"create_time" gorm:"column:create_time"`
 }
