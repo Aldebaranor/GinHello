@@ -5,15 +5,13 @@
  - using code:	gin.SetMode(gin.ReleaseMode)
 
 [GIN-debug] GET    /hello/hello              --> GinHello/controller/hello.Hello (3 handlers)
-[GIN-debug] POST   /noORM/insert             --> GinHello/controller/userInfo.InsertUser (3 handlers)
-[GIN-debug] GET    /noORM/deleteById         --> GinHello/controller/userInfo.DeleteUserById (3 handlers)
-[GIN-debug] POST   /noORM/updateById         --> GinHello/controller/userInfo.UpdateUserInfo (3 handlers)
-[GIN-debug] GET    /noORM/findAll            --> GinHello/controller/userInfo.FindAllUser (3 handlers)
-[GIN-debug] POST   /user/insert              --> GinHello/controller.InsertUser (3 handlers)
-[GIN-debug] GET    /user/findAll             --> GinHello/controller.GetUserList (3 handlers)
-[GIN-debug] GET    /user/getUser/:id         --> GinHello/controller.GetUserById (3 handlers)
-[GIN-debug] PUT    /user/update              --> GinHello/controller.UpdateUser (3 handlers)
-[GIN-debug] DELETE /user/delete/:id          --> GinHello/controller.DeleteUserById (3 handlers)
+[GIN-debug] POST   /user/insert              --> GinHello/controller.(*UserController).InsertUser-fm (3 handlers)
+[GIN-debug] GET    /user/findAll             --> GinHello/controller.(*UserController).GetUserList-fm (3 handlers)
+[GIN-debug] GET    /user/getUser/:id         --> GinHello/controller.(*UserController).GetUserById-fm (3 handlers)
+[GIN-debug] PUT    /user/update              --> GinHello/controller.(*UserController).UpdateUser-fm (3 handlers)
+[GIN-debug] DELETE /user/delete/:id          --> GinHello/controller.(*UserController).DeleteUserById-fm (3 handlers)
+[GIN-debug] GET    /comment/batchInsert      --> github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1 (2 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8081
+[GIN] 2022/09/29 - 13:49:08 | 200 |    199.4851ms |       127.0.0.1 | POST     "/user/insert"

@@ -14,12 +14,17 @@ func Routers() *gin.Engine {
 	}
 	UserRouter := routers.Group("/user")
 	{
-		UserRouter.POST("/insert", controller.InsertUser)
-		UserRouter.GET("/findAll", controller.GetUserList)
-		UserRouter.GET("/getUser/:id", controller.GetUserById)
-		UserRouter.PUT("/update", controller.UpdateUser)
-		UserRouter.DELETE("/delete/:id", controller.DeleteUserById)
+		UserRouter.POST("/insert", controller.UserControl.InsertUser)
+		UserRouter.GET("/findAll", controller.UserControl.GetUserList)
+		UserRouter.GET("/getUser/:id", controller.UserControl.GetUserById)
+		UserRouter.PUT("/update", controller.UserControl.UpdateUser)
+		UserRouter.DELETE("/delete/:id", controller.UserControl.DeleteUserById)
 
 	}
+	CommentRouter := routers.Group("/comment")
+	{
+		CommentRouter.GET("/batchInsert")
+	}
+
 	return routers
 }
