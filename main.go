@@ -21,7 +21,7 @@ func init() {
 func main() {
 	err := mapper.ConnectDB()
 	if err != nil {
-		panic(err)
+		log.Printf("%+v", err)
 	}
 	defer mapper.Close()
 	f, _ := os.Create("./logs/logs.log")

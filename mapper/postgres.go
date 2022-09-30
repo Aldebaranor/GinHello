@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/jinzhu/gorm"
 	_ "github.com/lib/pq"
+	"log"
 )
 
 var SqlSession *gorm.DB
@@ -21,7 +22,7 @@ func ConnectDB() (err error) {
 	psqlInfo := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s", Host, Port, User, Password, Dbname, Sslmode)
 	SqlSession, err = gorm.Open(DriverName, psqlInfo)
 	if err != nil {
-		panic(err)
+		log.Println("connectDBError", err)
 	}
 	return SqlSession.DB().Ping()
 }
