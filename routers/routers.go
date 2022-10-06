@@ -25,6 +25,10 @@ func Routers() *gin.Engine {
 	{
 		CommentRouter.GET("/batchInsert")
 	}
+	MathRouter := routers.Group("/q1")
+	{
+		MathRouter.GET("/q1")
+	}
 
 	return routers
 }
