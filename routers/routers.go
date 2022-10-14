@@ -23,7 +23,7 @@ func Routers() *gin.Engine {
 	}
 	CommentRouter := routers.Group("/comment")
 	{
-		CommentRouter.GET("/batchInsert")
+		CommentRouter.GET("/batchInsert", controller.CommentContr.BatchInsert)
 	}
 	MathRouter := routers.Group("/q1")
 	{
