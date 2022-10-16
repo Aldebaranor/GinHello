@@ -6,6 +6,7 @@ import (
 	"errors"
 	"log"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -59,8 +60,14 @@ func (t *CommentService) BatchInsert(comments []*entity.Comment) (err error) {
 	return
 }
 
+// INSERT INTO "public"."comment"("c_id", "content") VALUES (23, '24');
 func batch(datas []*entity.Comment, ch chan int) {
-	err := mapper.SqlSession.Create(&datas)
+	var build strings.Builder
+	for _, data := range datas {
+		build.WriteString("INSERT INTO \"public\".\"comment\"(\"c_id\", \"content\") VALUES (" + data.CId + ",'" + data.Content + "');")
+	}
+	err := mapper.SqlSession.Exec(build.String())
+	//err := mapper.SqlSession.Create(&datas)
 	if err != nil {
 		log.Printf("1111 batch insert sqlexec create err:", err)
 		ch <- 1
