@@ -10,3 +10,11 @@ Postgres:
   Password: juntai
   Dbname: golangdb
   Sslmode: disable
+
+Mqtt:
+  Address: tcp://127.0.0.1:1883
+  UserNAME: test
+  Password: test
+  Topic: goMqtt
+#  Qos:0 至多1次 1 至少1次 2 确保只有一次
+  QoS: 2

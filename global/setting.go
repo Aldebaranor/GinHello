@@ -21,10 +21,19 @@ type PostgresDbSettings struct {
 	Sslmode    string
 }
 
+type MqttSettings struct {
+	Address  string
+	UserName string
+	Password string
+	Topic    string
+	QoS      byte
+}
+
 // 定义全局变量
 var (
 	ServerSetting     *ServerSettingS
 	PostgresDbSetting *PostgresDbSettings
+	MqttSetting       *MqttSettings
 )
 
 // 读取配置到全局便量
@@ -45,7 +54,17 @@ func SetupSetting() error {
 	if err != nil {
 		return err
 	}
+	mq, err := setting.NewSetting()
+	if err != nil {
+		return err
+	}
+	err = mq.ReadSection("Mqtt", &MqttSetting)
+	if err != nil {
+		return err
+	}
 	log.Printf("pgSetting:")
 	log.Printf("%+v", PostgresDbSetting)
+	log.Printf("mqttSetting:")
+	log.Printf("%+v", MqttSetting)
 	return nil
 }

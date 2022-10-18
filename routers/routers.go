@@ -30,6 +30,11 @@ func Routers() *gin.Engine {
 	{
 		MathRouter.GET("/q1")
 	}
+	MqttRouter := routers.Group("/mqtt")
+	{
+		MqttRouter.GET("/sub", controller.MqttControl.Subscribe)
+		MqttRouter.POST("/pub", controller.MqttControl.Produce)
+	}
 
 	return routers
 }

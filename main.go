@@ -3,6 +3,7 @@ package main
 import (
 	"GinHello/global"
 	"GinHello/mapper"
+	"GinHello/message/mqtt/config"
 	"GinHello/routers"
 	"github.com/gin-gonic/gin"
 	"io"
@@ -15,6 +16,7 @@ func init() {
 	if err != nil {
 		log.Fatalf("init.setupSetting err: %v", err)
 	}
+	config.InitMqtt()
 
 }
 
