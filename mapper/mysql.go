@@ -3,6 +3,7 @@ package mapper
 import (
 	"GinHello/global"
 	"fmt"
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
 	"log"
 )

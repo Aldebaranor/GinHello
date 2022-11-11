@@ -3,14 +3,15 @@ module GinHello
 go 1.19
 
 require (
+	github.com/eclipse/paho.mqtt.golang v1.4.1
 	github.com/gin-gonic/gin v1.8.1
+	github.com/go-sql-driver/mysql v1.5.0
 	github.com/jinzhu/gorm v1.9.16
 	github.com/lib/pq v1.10.7
 	github.com/spf13/viper v1.13.0
 )
 
 require (
-	github.com/eclipse/paho.mqtt.golang v1.4.1 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.14.0 // indirect

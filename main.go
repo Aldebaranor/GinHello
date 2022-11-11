@@ -4,6 +4,7 @@ import (
 	"GinHello/global"
 	"GinHello/mapper"
 	"GinHello/message/mqtt/config"
+	"GinHello/message/udp"
 	"GinHello/routers"
 	"github.com/gin-gonic/gin"
 	"io"
@@ -22,6 +23,7 @@ func init() {
 }
 
 func main() {
+
 	var err error
 	if strings.Compare(global.DataSourceSetting.Source, "mysql") == 0 {
 		err = mapper.ConnectMysqlDB()
@@ -36,6 +38,10 @@ func main() {
 	} else {
 		defer mapper.ClosePG()
 	}
+
+	udp.UdpServer()
+	udp.UdpClient()
+
 	f, _ := os.Create("./logs/logs.log")
 	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
 	gin.SetMode(global.ServerSetting.RunMode)
