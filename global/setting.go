@@ -11,6 +11,13 @@ type ServerSettingS struct {
 	HttpPort string
 }
 
+type DataSourceSettings struct {
+	Source    string
+	TableName string
+	Time      string
+	Step      string
+}
+
 type PostgresDbSettings struct {
 	DriverName string
 	Host       string
@@ -19,6 +26,15 @@ type PostgresDbSettings struct {
 	Password   string
 	Dbname     string
 	Sslmode    string
+}
+
+type MySqlDbSettings struct {
+	DriverName string
+	Host       string
+	Port       string
+	User       string
+	Password   string
+	Dbname     string
 }
 
 type MqttSettings struct {
@@ -32,7 +48,9 @@ type MqttSettings struct {
 // 定义全局变量
 var (
 	ServerSetting     *ServerSettingS
+	DataSourceSetting *DataSourceSettings
 	PostgresDbSetting *PostgresDbSettings
+	MysqlDbSetting    *MySqlDbSettings
 	MqttSetting       *MqttSettings
 )
 
@@ -46,6 +64,16 @@ func SetupSetting() error {
 	if err != nil {
 		return err
 	}
+
+	ds, err := setting.NewSetting()
+	if err != nil {
+		return err
+	}
+	err = ds.ReadSection("DataSource", &DataSourceSetting)
+	if err != nil {
+		return err
+	}
+
 	pgdb, err := setting.NewSetting()
 	if err != nil {
 		return err
@@ -54,6 +82,16 @@ func SetupSetting() error {
 	if err != nil {
 		return err
 	}
+
+	mydb, err := setting.NewSetting()
+	if err != nil {
+		return err
+	}
+	err = mydb.ReadSection("Mysql", &MysqlDbSetting)
+	if err != nil {
+		return err
+	}
+
 	mq, err := setting.NewSetting()
 	if err != nil {
 		return err
@@ -64,6 +102,8 @@ func SetupSetting() error {
 	}
 	log.Printf("pgSetting:")
 	log.Printf("%+v", PostgresDbSetting)
+	log.Printf("MysqlSetting:")
+	log.Printf("%+v", MysqlDbSetting)
 	log.Printf("mqttSetting:")
 	log.Printf("%+v", MqttSetting)
 	return nil

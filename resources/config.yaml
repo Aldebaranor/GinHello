@@ -2,6 +2,20 @@ Server:
   RunMode: debug
   HttpPort: 8081
 
+DataSource:
+  Source: postgres
+  TableName: public"."comment
+  Time: content
+  Step: 100
+
+Mysql:
+  DriverName: mysql
+  Host: 127.0.0.1
+  Port: 3306
+  User: root
+  Password: 300317
+  Dbname: gin
+
 Postgres:
   DriverName: postgres
   Host: 47.97.116.47

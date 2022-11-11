@@ -11,7 +11,7 @@ import (
 var SqlSession *gorm.DB
 
 // 连接数据库
-func ConnectDB() (err error) {
+func ConnectPGDB() (err error) {
 	DriverName := global.PostgresDbSetting.DriverName
 	Host := global.PostgresDbSetting.Host
 	Port := global.PostgresDbSetting.Port
@@ -27,7 +27,7 @@ func ConnectDB() (err error) {
 	return SqlSession.DB().Ping()
 }
 
-func Close() {
+func ClosePG() {
 	SqlSession.Close()
 
 }

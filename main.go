@@ -9,6 +9,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"strings"
 )
 
 func init() {
@@ -21,11 +22,20 @@ func init() {
 }
 
 func main() {
-	err := mapper.ConnectDB()
+	var err error
+	if strings.Compare(global.DataSourceSetting.Source, "mysql") == 0 {
+		err = mapper.ConnectMysqlDB()
+	} else {
+		err = mapper.ConnectPGDB()
+	}
 	if err != nil {
 		log.Printf("%+v", err)
 	}
-	defer mapper.Close()
+	if strings.Compare(global.DataSourceSetting.Source, "mysql") == 0 {
+		defer mapper.CloseMysql()
+	} else {
+		defer mapper.ClosePG()
+	}
 	f, _ := os.Create("./logs/logs.log")
 	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
 	gin.SetMode(global.ServerSetting.RunMode)
