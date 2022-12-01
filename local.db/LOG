@@ -1,0 +1,55 @@
+=============== Dec 1, 2022 (CST) ===============
+16:58:11.651109 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+16:58:11.711137 db@open opening
+16:58:11.714633 version@stat F·[] S·0B[] Sc·[]
+16:58:11.723560 db@janitor F·2 G·0
+16:58:11.723560 db@open done T·12.4239ms
+16:58:11.723560 db@close closing
+16:58:11.732436 db@close done T·8.8756ms
+=============== Dec 1, 2022 (CST) ===============
+17:00:06.027514 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:00:06.063578 version@stat F·[] S·0B[] Sc·[]
+17:00:06.063578 db@open opening
+17:00:06.064573 journal@recovery F·1
+17:00:06.066091 journal@recovery recovering @1
+17:00:06.067134 version@stat F·[] S·0B[] Sc·[]
+17:00:06.119211 db@janitor F·2 G·0
+17:00:06.119211 db@open done T·55.6327ms
+17:00:06.119211 db@close closing
+17:00:06.148701 db@close done T·29.4901ms
+=============== Dec 1, 2022 (CST) ===============
+17:00:28.444979 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:00:28.474500 version@stat F·[] S·0B[] Sc·[]
+17:00:28.475497 db@open opening
+17:00:28.475497 journal@recovery F·1
+17:00:28.477364 journal@recovery recovering @2
+17:00:28.496851 memdb@flush created L0@4 N·1 S·123B "hello,v1":"hello,v1"
+17:00:28.499130 version@stat F·[1] S·123B[123B] Sc·[0.25]
+17:00:28.550890 db@janitor F·3 G·0
+17:00:28.550890 db@open done T·75.3938ms
+17:00:28.550890 db@close closing
+17:00:28.580015 db@close done T·29.1246ms
+=============== Dec 1, 2022 (CST) ===============
+17:00:44.200990 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:00:44.238606 version@stat F·[1] S·123B[123B] Sc·[0.25]
+17:00:44.238606 db@open opening
+17:00:44.238606 journal@recovery F·1
+17:00:44.240118 journal@recovery recovering @5
+17:00:44.259148 memdb@flush created L0@7 N·1 S·123B "hello,v3":"hello,v3"
+17:00:44.260694 version@stat F·[2] S·246B[246B] Sc·[0.50]
+17:00:44.318056 db@janitor F·4 G·0
+17:00:44.318056 db@open done T·79.4497ms
+17:00:44.319055 db@close closing
+17:00:44.341023 db@close done T·21.9674ms
+=============== Dec 1, 2022 (CST) ===============
+17:13:41.097044 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:13:41.127622 version@stat F·[2] S·246B[246B] Sc·[0.50]
+17:13:41.127622 db@open opening
+17:13:41.128666 journal@recovery F·1
+17:13:41.130451 journal@recovery recovering @8
+17:13:41.145595 memdb@flush created L0@10 N·1 S·123B "hello,v5":"hello,v5"
+17:13:41.151918 version@stat F·[3] S·369B[369B] Sc·[0.75]
+17:13:41.203899 db@janitor F·5 G·0
+17:13:41.203899 db@open done T·75.2331ms
+17:13:42.568385 db@close closing
+17:13:42.606362 db@close done T·37.9765ms
